@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Promises</title>
+</head>
+<body>
+<script>
+/**
+Promises sao muito usadas na programacao JavaScript, porque sao executadas de maneira assincrona. Quando tem algo que poderah demorar, executa isso de forma assincrona, e isso eh bom, porque nao trava o programa. Enquanto estah executando aquela coisa um pouco mais demorada, o programa continua funcionando, porque estah executando em background.
+
+
+As Promises sao isso: elas estao executando alguma funcao, alguma coisa e, quando estiver pronto aquilo que ela estah executando, o codigo eh notificado e pode-se tomar alguma acao a respeito daquilo.​
+
+*/
+	// fetch() eh uma funcao que faz uma requisicao http.
+	// fetch faz uma requisicao e devolve uma resposta, que eh uma Promise.
+	// Por que eh uma Promise? Porque a requisicao pode demorar. A chamada para a API para demorar.
+	const resposta = fetch('http://api.postmon.com.br/v1/cepb/01310932');
+	// Retorna a Promise. E ai o que fazer com a Promise?
+	// Chamar resposta.then(), passando uma funcao.
+	// O que significa o then()? Significa que vai executar quando a Promise estiver pronta, quando estiver resolvida.
+	// Na hora que terminar a execucao da Promise, vai chamar o then(). Entao, dentro do then(), pode definir uma function
+	// ou jah usar o array function. Entao, vai definir data como os dados que foram retornados. Entao, vai usar o console.log
+	// para mostrar os dados.
+
+	// Pode tratar um erro na Promise. Pode chamar um catch(), passando uma outra funcao para tratar os erros.
+	resposta.then(data => data.json())
+			.then(data => console.log(data))
+			.catch(erro => console.log(erro));
+</script>
+</body>
+</html>
